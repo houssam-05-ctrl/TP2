@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ex1.css">
+    <title>ex 1</title>
+</head>
+<body>
+    <h1>click on the button to change the color</h1>
+   <div class="box">
+       &#9734
+   </div>
+   <button class="button" onclick="changeColor()">
+    change to red
+   </button>
+   <button class="reset" onclick="resetColor()">
+    reset
+   </button>
+   <br>
+   <button class="afficher" onclick="afficherE()">
+    afficher etoile
+   </button>
+   <button class="supp" onclick="masquerE()">
+    masquer
+   </button>
+
+
+
+   <script>
+    function changeColor(){
+        document.querySelector('.box').style.backgroundColor='red';
+    }
+    function resetColor(){
+        document.querySelector('.box').style.backgroundColor='green';
+    }
+    function afficherE(){
+        document.querySelector('.box').innerHTML = '&#9734';
+    }
+    function masquerE(){
+        document.querySelector('.box').innerHTML = '';
+    }
+   </script>
+</body>
+</html>
