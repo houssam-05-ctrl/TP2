@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>hover effect</title>
+  </head>
+  <body>
+      <div class="container">hover on me</div>
+      <div class="Acontainer">hover on me</div>
+    </div>
+
+    <script>
+      const myDiv = document.querySelector(".container");
+      myDiv.addEventListener("mouseover", () => {
+        myDiv.style.backgroundColor = "purple";
+      });
+      myDiv.addEventListener("mouseout", () => {
+        myDiv.style.backgroundColor = "";
+      });
+      const myDiv2 = document.querySelector(".Acontainer");
+      myDiv2.addEventListener("mouseover", () => {
+        myDiv2.style.backgroundColor = "purple";
+      });
+      myDiv2.addEventListener("mouseout", () => {
+        myDiv2.style.backgroundColor = "";
+      });
+    </script>
+  </body>
+</html>
