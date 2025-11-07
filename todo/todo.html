@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Todo list</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Ma Liste de Tâches</h1>
+
+      <div class="input-section">
+        <input
+          type="text"
+          id="taskInput"
+          placeholder="Entrez une nouvelle tâche..."
+        />
+        <button id="addButton">Ajouter</button>
+      </div>
+
+      <ul id="taskList" class="task-list"></ul>
+    </div>
+
+    <script>
+      const taskInput = document.getElementById("taskInput");
+      const addButton = document.getElementById("addButton");
+      const taskList = document.getElementById("taskList");
+
+      function addTask() {
+        const taskText = taskInput.value.trim();
+
+        // verifier que le champ nest pas vide
+        if (taskText === "") {
+          alert("entrez une tâche");
+          return;
+        }
+        const taskItem = document.createElement("li");
+        taskItem.className = "task-item";
+
+        const taskSpan = document.createElement("span");
+        taskSpan.className = "task-text";
+        taskSpan.textContent = taskText;
+
+        const buttonsDiv = document.createElement("div");
+        buttonsDiv.className = "task-buttons";
+
+        const doneButton = document.createElement("button");
+        doneButton.className = "done-button";
+        doneButton.textContent = "done";
+        doneButton.onclick = function () {
+          taskSpan.classList.toggle("task-done");
+        };
+
+        const deleteButton = document.createElement("button");
+        deleteButton.className = "delete-button";
+        deleteButton.textContent = "delete";
+        deleteButton.onclick = function () {
+          taskList.removeChild(taskItem);
+          checkEmptyList();
+        };
+
+        // Assembler l'élément
+        buttonsDiv.appendChild(doneButton);
+        buttonsDiv.appendChild(deleteButton);
+        taskItem.appendChild(taskSpan);
+        taskItem.appendChild(buttonsDiv);
+
+        taskList.appendChild(taskItem);
+
+        taskInput.value = "";
+        checkEmptyList();
+      }
+
+      function checkEmptyList() {
+        if (taskList.children.length === 0) {
+          const emptyMessage = document.createElement("li");
+          emptyMessage.className = "empty-message";
+          emptyMessage.textContent = "no tasks available. add a task";
+          taskList.appendChild(emptyMessage);
+        }
+      }
+
+      addButton.addEventListener("click", addTask);
+
+      taskInput.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+          addTask();
+        }
+      });
+      checkEmptyList();
+    </script>
+  </body>
+</html>
