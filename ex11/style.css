@@ -1,0 +1,27 @@
+.container {
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  width: 80%;
+}
+
+.barRecherche {
+  margin: 10px;
+}
+
+input {
+  width: 80%;
+  font-size: 16px;
+  border-radius: 8px;
+  outline: none;
+  padding: 10px;
+}
+li {
+  list-style: none;
+  border: 1px solid;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 6px;
+}
